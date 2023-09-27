@@ -18,18 +18,23 @@ const DeleteBook = () => {
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Deleted successfully', { variant: 'success' });
-        navigate('/');
+        navigate('/home');
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
+        // alert('An error happened. Please Check console');
         enqueueSnackbar('Error', { variant: 'error' });
         console.log(error);
       });
   };
-  
+
   return (
-    <div className='p-4'>
+    <div
+      className='bg-black text-white p-4 min-h-screen'
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))`,
+      }}
+    >
       <BackButton />
       <h1 className='text-3xl my-4'>Delete Book</h1>
       {loading ? <Spinner /> : ''}
@@ -44,7 +49,7 @@ const DeleteBook = () => {
         </button>
       </div>
     </div>
-  )
+  );
 }
 
 export default DeleteBook;
